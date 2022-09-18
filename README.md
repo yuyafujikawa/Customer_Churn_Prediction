@@ -3,7 +3,7 @@ Customer Churn Prediction based on several numerical features. Classic classific
 
 Data Source: https://www.kaggle.com/code/kmalit/bank-customer-churn-prediction/data
 
-#### Future Improvement - Create the ROC curve to visualize the performance of classification - Greater the area under the curve, better the performance. 
+#### Future Improvement - Create the ROC curve (False Positive vs. True Positive) to visualize the performance of classification - Greater the area under the curve, better the performance. 
 
 Refer to: https://www.projectpro.io/recipes/plot-roc-curve-in-python
 
