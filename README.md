@@ -3,11 +3,9 @@ Customer Churn Prediction based on several numerical features. Classic classific
 
 Data Source: https://www.kaggle.com/code/kmalit/bank-customer-churn-prediction/data
 
-#### Future Improvement - Create the ROC curve (False Positive vs. True Positive) to visualize the performance of classification - Greater the area under the curve, better the performance. 
+#### Future Improvement 1 - Create the ROC curve (False Positive vs. True Positive) to visualize the performance of classification - Greater the area under the curve, better the performance. - Done 19/09/2022
 
-Refer to: https://www.projectpro.io/recipes/plot-roc-curve-in-python
-
-#### Set probability param to True before fitting models (e.g. for SVC). 
+Reference:  https://www.projectpro.io/recipes/plot-roc-curve-in-python
 
 ```
 from sklearn.metrics import roc_curve, roc_auc_score
@@ -37,4 +35,20 @@ plt.plot([0, 0], [1, 0] , c=".7"), plt.plot([1, 1] , c=".7")
 plt.ylabel('True Positive Rate')
 plt.xlabel('False Positive Rate')
 plt.show()
+```
+
+#### Future Improvement 2 - Run a more refined GridsearchCV with more parameters and respecitve values/range for the MLPClassifier for fine-tuning. Used only alpha in the first version, but could *incorporate other parameters such as hidden_layer_sizes, activation, solver and learning rate*. 
+#### Reference: https://datascience.stackexchange.com/questions/36049/how-to-adjust-the-hyperparameters-of-mlp-classifier-to-get-more-perfect-performa
+
+#### Set probability param to True before fitting certain models so that the ROC Curve can be plotted.(e.g. for SVC). 
+
+#### Example of parameter grid for GridsearchCV
+```
+param_grid = {
+    'hidden_layer_sizes': [(50,50,50), (50,100,50), (100,)],
+    'activation': ['tanh', 'relu'],
+    'solver': ['sgd', 'adam'],
+    'alpha': [0.0001, 0.05],
+    'learning_rate': ['constant','adaptive'],
+}
 ```
