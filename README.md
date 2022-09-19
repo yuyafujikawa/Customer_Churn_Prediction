@@ -5,7 +5,7 @@ Data Source: https://www.kaggle.com/code/kmalit/bank-customer-churn-prediction/d
 
 #### Future Improvement 1 - Create the ROC curve (False Positive vs. True Positive) to visualize the performance of classification - Greater the area under the curve, better the performance. - Done 19/09/2022
 
-Reference:  https://www.projectpro.io/recipes/plot-roc-curve-in-python
+Reference:  https://www.statology.org/plot-multiple-roc-curves-python/
 
 ##### Example below:
 Model instance definition and fitting has been done in previous step. Refer to JupyterNotebook for more details.
