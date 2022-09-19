@@ -9,36 +9,20 @@ Reference:  https://www.projectpro.io/recipes/plot-roc-curve-in-python
 
 ```
 from sklearn.metrics import roc_curve, roc_auc_score
-    
-y_score1 = knnc.predict_proba(X_test)[:,1]
-y_score2 = svc.predict_proba(X_test)[:,1]
 
-false_positive_rate1, true_positive_rate1, threshold1 = roc_curve(y_test, y_score1)
-false_positive_rate2, true_positive_rate2, threshold2 = roc_curve(y_test, y_score2)
-print('roc_auc_score for KNN: ', roc_auc_score(y_test, y_score1))
-print('roc_auc_score for SVC: ', roc_auc_score(y_test, y_score2))
+plt.figure(figsize=(10,10))
 
-plt.subplots(1, figsize=(10,10))
-plt.title('Receiver Operating Characteristic - KNN')
-plt.plot(false_positive_rate1, true_positive_rate1)
-plt.plot([0, 1], ls="--")
-plt.plot([0, 0], [1, 0] , c=".7"), plt.plot([1, 1] , c=".7")
-plt.ylabel('True Positive Rate')
-plt.xlabel('False Positive Rate')
-plt.show()
-
-plt.subplots(1, figsize=(10,10))
-plt.title('Receiver Operating Characteristic - SVC')
-plt.plot(false_positive_rate2, true_positive_rate2)
-plt.plot([0, 1], ls="--")
-plt.plot([0, 0], [1, 0] , c=".7"), plt.plot([1, 1] , c=".7")
-plt.ylabel('True Positive Rate')
-plt.xlabel('False Positive Rate')
-plt.show()
+##### Example
+##### Model instance definition and fitting has been done in previous step. Refer to JupyterNotebook for more details
+y_pred = knnc.predict_proba(X_test)[:, 1]
+fpr, tpr, _ = roc_curve(y_test, y_pred)
+auc = round(roc_auc_score(y_test, y_pred), 4)
+plt.plot(fpr,tpr,label="KNeighborsClassifier AUC="+str(auc))
 ```
 
 #### Future Improvement 2 - Run a more refined GridsearchCV with more parameters and respecitve values/range for the MLPClassifier for fine-tuning. Used only alpha in the first version, but could *incorporate other parameters such as hidden_layer_sizes, activation, solver and learning rate*. 
-#### Reference: https://datascience.stackexchange.com/questions/36049/how-to-adjust-the-hyperparameters-of-mlp-classifier-to-get-more-perfect-performa
+
+Reference: https://datascience.stackexchange.com/questions/36049/how-to-adjust-the-hyperparameters-of-mlp-classifier-to-get-more-perfect-performa
 
 #### Set probability param to True before fitting certain models so that the ROC Curve can be plotted.(e.g. for SVC). 
 
