@@ -7,13 +7,14 @@ Data Source: https://www.kaggle.com/code/kmalit/bank-customer-churn-prediction/d
 
 Reference:  https://www.projectpro.io/recipes/plot-roc-curve-in-python
 
+##### Example below:
+Model instance definition and fitting has been done in previous step. Refer to JupyterNotebook for more details.
+
 ```
 from sklearn.metrics import roc_curve, roc_auc_score
 
 plt.figure(figsize=(10,10))
 
-##### Example
-##### Model instance definition and fitting has been done in previous step. Refer to JupyterNotebook for more details
 y_pred = knnc.predict_proba(X_test)[:, 1]
 fpr, tpr, _ = roc_curve(y_test, y_pred)
 auc = round(roc_auc_score(y_test, y_pred), 4)
